@@ -21,7 +21,16 @@
 בעת יצירת לקוח חדש הלקוח רץ ברקע ומאזין לקריאות חדשות מהשרת
 בכדי להאזין להודעות שמתקבלות מהמשתמשים האחרים ובמקביל לטפל בכתיבת ההודעות לשרת, נעזר בthread נוסף בשם client שהוא מאזין להודעות חדשות מהשרת
 
+דוגמה להרצה - -
+
 ![image](https://github.com/user-attachments/assets/e0930e31-b7b7-4854-bf81-340af686ffd4)
+![image](https://github.com/user-attachments/assets/8f0b894a-0479-49e0-9b57-863935cd545b)
+![image](https://github.com/user-attachments/assets/2fc1f3e2-6d4e-4c18-9b87-e9f3fa8416f5)
+![image](https://github.com/user-attachments/assets/26d1882e-9cc9-4f1f-aa65-3174c1feaf7c)
+![image](https://github.com/user-attachments/assets/cb2936f6-ace8-4577-a09d-97358e88f567)
+![image](https://github.com/user-attachments/assets/bcde1cd8-a997-4286-9050-32c4749eb2ad)
+![image](https://github.com/user-attachments/assets/e1ee94a9-a228-437d-a487-592f91a35c97)
+![image](https://github.com/user-attachments/assets/759f9842-4190-4cdf-bb9b-0b8afcc41ef5)
 
 
 
