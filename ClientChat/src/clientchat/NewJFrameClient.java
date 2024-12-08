@@ -29,18 +29,18 @@ import java.util.Set;
  */
 public class NewJFrameClient extends javax.swing.JFrame {
 
-    private String UserName;//   ùí ä÷ìééğè
-    private Client ChatClient; // îåôò ì÷ìééğè
-    Boolean x = true; // îùúğä ìñâéøú äçìåğéú
+    private String UserName;//   Ã¹Ã­ Ã¤Ã·Ã¬Ã©Ã©Ã°Ã¨
+    private Client ChatClient; // Ã®Ã¥Ã´Ã² Ã¬Ã·Ã¬Ã©Ã©Ã°Ã¨
+    Boolean x = true; // Ã®Ã¹ÃºÃ°Ã¤ Ã¬Ã±Ã¢Ã©Ã¸Ãº Ã¤Ã§Ã¬Ã¥Ã°Ã©Ãº
 
     public NewJFrameClient() {
-        //îñâøú äöàè
+        //Ã®Ã±Ã¢Ã¸Ãº Ã¤Ã¶Ã Ã¨
         initComponents();
-        setResizable(false);//ìà ğéúï ìùéğåé âåãì
-        setLocationRelativeTo(null);//îé÷åí áîøëæ
+        setResizable(false);//Ã¬Ã  Ã°Ã©ÃºÃ¯ Ã¬Ã¹Ã©Ã°Ã¥Ã© Ã¢Ã¥Ã£Ã¬
+        setLocationRelativeTo(null);//Ã®Ã©Ã·Ã¥Ã­ Ã¡Ã®Ã¸Ã«Ã¦
         setTitle("Client");
         setSize(315, 410);
-        getContentPane().setBackground(Color.WHITE);//öáò ø÷ò
+        getContentPane().setBackground(Color.WHITE);//Ã¶Ã¡Ã² Ã¸Ã·Ã²
         sendChat.setEnabled(false);
         UserText.setEnabled(false);
         warrningMessage.setVisible(false);
@@ -187,13 +187,13 @@ public class NewJFrameClient extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void sendChatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendChatActionPerformed
-        if (!UserText.getText().equals("")) {   //ø÷ àí ääåãòä ìà øé÷ä-úùìç 
+        if (!UserText.getText().equals("")) {   //Ã¸Ã· Ã Ã­ Ã¤Ã¤Ã¥Ã£Ã²Ã¤ Ã¬Ã  Ã¸Ã©Ã·Ã¤-ÃºÃ¹Ã¬Ã§ 
             ChatClient._sendChatActionPerformed(UserText.getText());
         }
     }//GEN-LAST:event_sendChatActionPerformed
 
     private void UserTextKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UserTextKeyPressed
-        //çéáåø ìî÷ù äàğèø 
+        //Ã§Ã©Ã¡Ã¥Ã¸ Ã¬Ã®Ã·Ã¹ Ã¤Ã Ã°Ã¨Ã¸ 
         if (evt.getKeyCode() == 10) {
             if (!UserText.getText().equals("")) {
                 ChatClient._sendChatActionPerformed(UserText.getText());
@@ -206,7 +206,7 @@ public class NewJFrameClient extends javax.swing.JFrame {
     }//GEN-LAST:event_connectToServerActionPerformed
 
     private void UserInputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UserInputKeyPressed
-        //çéáåø ìî÷ù äàğèø 
+        //Ã§Ã©Ã¡Ã¥Ã¸ Ã¬Ã®Ã·Ã¹ Ã¤Ã Ã°Ã¨Ã¸ 
         if (evt.getKeyCode() == 10) {
             _connectToServerActionPerformed();
         }
@@ -254,16 +254,16 @@ public class NewJFrameClient extends javax.swing.JFrame {
         });
     }
 
-    private void _connectToServerActionPerformed() {  //îåôòìú áìçéöä òì ä÷åğ÷è  
+    private void _connectToServerActionPerformed() {  //Ã®Ã¥Ã´Ã²Ã¬Ãº Ã¡Ã¬Ã§Ã©Ã¶Ã¤ Ã²Ã¬ Ã¤Ã·Ã¥Ã°Ã·Ã¨  
 
-        //  îáìáì àú ëì äçéùåáéí    =':'
+        //  Ã®Ã¡Ã¬Ã¡Ã¬ Ã Ãº Ã«Ã¬ Ã¤Ã§Ã©Ã¹Ã¥Ã¡Ã©Ã­    =':'
         if (UserInput.getText().contains(":")) {
             warrningMessage.setVisible(true);
             pack();
         } else {
 
             
-            //ùìà éñâø éùø áìçéöä òì äàé÷ñ    
+            //Ã¹Ã¬Ã  Ã©Ã±Ã¢Ã¸ Ã©Ã¹Ã¸ Ã¡Ã¬Ã§Ã©Ã¶Ã¤ Ã²Ã¬ Ã¤Ã Ã©Ã·Ã±    
             setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
             x = false;
             
@@ -271,7 +271,7 @@ public class NewJFrameClient extends javax.swing.JFrame {
             ChatClient = new Client();
             ChatClient.start();//run
 
-            //ñéãåø äöàè
+            //Ã±Ã©Ã£Ã¥Ã¸ Ã¤Ã¶Ã Ã¨
             sendChat.setEnabled(true);
             UserText.setEnabled(true);
 
@@ -289,23 +289,23 @@ public class NewJFrameClient extends javax.swing.JFrame {
 
     public class Client extends Thread {
 
-        private static final int PORT = 9999;// äôåøè áéï äñøáø ì÷ìééğè
-        private ByteBuffer ReadBuffer;//÷øéàú äåãòåú öàè
-        private ByteBuffer writeBuffer;//ùìéçú äåãòåú öàè
-        private SocketChannel SChan;    //çéáåø
-        private Selector ReadSelector;// éöéøú ñì÷èåø äîùîù ìèéôåì áòøåöéí îøåáéí áàîöòåú äìéê îùğä éçéã
-        private CharsetDecoder asciiDecoder;//î÷åãã//ìäôåê áéè ì÷åã àñ÷é
+        private static final int PORT = 9999;// Ã¤Ã´Ã¥Ã¸Ã¨ Ã¡Ã©Ã¯ Ã¤Ã±Ã¸Ã¡Ã¸ Ã¬Ã·Ã¬Ã©Ã©Ã°Ã¨
+        private ByteBuffer ReadBuffer;//Ã·Ã¸Ã©Ã Ãº Ã¤Ã¥Ã£Ã²Ã¥Ãº Ã¶Ã Ã¨
+        private ByteBuffer writeBuffer;//Ã¹Ã¬Ã©Ã§Ãº Ã¤Ã¥Ã£Ã²Ã¥Ãº Ã¶Ã Ã¨
+        private SocketChannel SChan;    //Ã§Ã©Ã¡Ã¥Ã¸
+        private Selector ReadSelector;// Ã©Ã¶Ã©Ã¸Ãº Ã±Ã¬Ã·Ã¨Ã¥Ã¸ Ã¤Ã®Ã¹Ã®Ã¹ Ã¬Ã¨Ã©Ã´Ã¥Ã¬ Ã¡Ã²Ã¸Ã¥Ã¶Ã©Ã­ Ã®Ã¸Ã¥Ã¡Ã©Ã­ Ã¡Ã Ã®Ã¶Ã²Ã¥Ãº Ã¤Ã¬Ã©Ãª Ã®Ã¹Ã°Ã¤ Ã©Ã§Ã©Ã£
+        private CharsetDecoder asciiDecoder;//Ã®Ã·Ã¥Ã£Ã£//Ã¬Ã¤Ã´Ã¥Ãª Ã¡Ã©Ã¨ Ã¬Ã·Ã¥Ã£ Ã Ã±Ã·Ã©
         int id;//code
 
         public Client() {
-            ReadBuffer = ByteBuffer.allocateDirect(300);// àéúçåì äáôø ùì ä÷øéàä åäëúéáä åğúéğú ÷éáåìú ááúéí
+            ReadBuffer = ByteBuffer.allocateDirect(300);// Ã Ã©ÃºÃ§Ã¥Ã¬ Ã¤Ã¡Ã´Ã¸ Ã¹Ã¬ Ã¤Ã·Ã¸Ã©Ã Ã¤ Ã¥Ã¤Ã«ÃºÃ©Ã¡Ã¤ Ã¥Ã°ÃºÃ©Ã°Ãº Ã·Ã©Ã¡Ã¥Ã¬Ãº Ã¡Ã¡ÃºÃ©Ã­
             writeBuffer = ByteBuffer.allocateDirect(300);
-            asciiDecoder = Charset.forName("US-ASCII").newDecoder();//î÷åãã
+            asciiDecoder = Charset.forName("US-ASCII").newDecoder();//Ã®Ã·Ã¥Ã£Ã£
         }
 
         public void run() {
             UserName = UserInput.getText();
-            Connect("DESKTOP-49VMUKQ");// äúçáøåú ìùøú áôåğ÷öéä
+            Connect("YOUR_SERVER_NAME");// Ã¤ÃºÃ§Ã¡Ã¸Ã¥Ãº Ã¬Ã¹Ã¸Ãº Ã¡Ã´Ã¥Ã°Ã·Ã¶Ã©Ã¤
             while (true) {
                 ReadMassage();
                 try {
@@ -318,19 +318,19 @@ public class NewJFrameClient extends javax.swing.JFrame {
         public void Connect(String hostname) {
             try {
                 System.out.println("try connecting to server...   " + hostname);
-                ReadSelector = Selector.open();// éöéøú äñì÷èåø
-                InetAddress addr = InetAddress.getByName(hostname);// îçæéøä àééôé ùì äîçùá äîàøç 
-                SChan = SocketChannel.open(new InetSocketAddress(addr, PORT));//éöøğå çéáåø
-                SChan.configureBlocking(false);//non-blocking duplex mode//it will be placed non-blocking mode äòøåõ éåöá áîöá ìà çåñí
-                //àôùåø î÷áéìéåú
+                ReadSelector = Selector.open();// Ã©Ã¶Ã©Ã¸Ãº Ã¤Ã±Ã¬Ã·Ã¨Ã¥Ã¸
+                InetAddress addr = InetAddress.getByName(hostname);// Ã®Ã§Ã¦Ã©Ã¸Ã¤ Ã Ã©Ã©Ã´Ã© Ã¹Ã¬ Ã¤Ã®Ã§Ã¹Ã¡ Ã¤Ã®Ã Ã¸Ã§ 
+                SChan = SocketChannel.open(new InetSocketAddress(addr, PORT));//Ã©Ã¶Ã¸Ã°Ã¥ Ã§Ã©Ã¡Ã¥Ã¸
+                SChan.configureBlocking(false);//non-blocking duplex mode//it will be placed non-blocking mode Ã¤Ã²Ã¸Ã¥Ãµ Ã©Ã¥Ã¶Ã¡ Ã¡Ã®Ã¶Ã¡ Ã¬Ã  Ã§Ã¥Ã±Ã­
+                //Ã Ã´Ã¹Ã¥Ã¸ Ã®Ã·Ã¡Ã©Ã¬Ã©Ã¥Ãº
 
                 //register
-                //øåùí òøåõ æä òí äñì÷èåø äğúåï åîçæéø îôúç áçéøä
+                //Ã¸Ã¥Ã¹Ã­ Ã²Ã¸Ã¥Ãµ Ã¦Ã¤ Ã²Ã­ Ã¤Ã±Ã¬Ã·Ã¨Ã¥Ã¸ Ã¤Ã°ÃºÃ¥Ã¯ Ã¥Ã®Ã§Ã¦Ã©Ã¸ Ã®Ã´ÃºÃ§ Ã¡Ã§Ã©Ã¸Ã¤
                 //ReadSelector
-                //äñì÷èåø àéúå àîåø òøåõ æä ìäéøùí
+                //Ã¤Ã±Ã¬Ã·Ã¨Ã¥Ã¸ Ã Ã©ÃºÃ¥ Ã Ã®Ã¥Ã¸ Ã²Ã¸Ã¥Ãµ Ã¦Ã¤ Ã¬Ã¤Ã©Ã¸Ã¹Ã­
                 //SelectionKey.OP_READ 
-                //äñãøä ùğ÷áòä òáåø äîôúç äîú÷áì// Operation-set bit for read operations.
-                SChan.register(ReadSelector, SelectionKey.OP_READ, new StringBuffer());//äøùîä ìñì÷èåø
+                //Ã¤Ã±Ã£Ã¸Ã¤ Ã¹Ã°Ã·Ã¡Ã²Ã¤ Ã²Ã¡Ã¥Ã¸ Ã¤Ã®Ã´ÃºÃ§ Ã¤Ã®ÃºÃ·Ã¡Ã¬// Operation-set bit for read operations.
+                SChan.register(ReadSelector, SelectionKey.OP_READ, new StringBuffer());//Ã¤Ã¸Ã¹Ã®Ã¤ Ã¬Ã±Ã¬Ã·Ã¨Ã¥Ã¸
 
                 System.out.println("success!!!!!!!!!!! connecting to server " + hostname);
             } catch (Exception e) {
@@ -338,18 +338,18 @@ public class NewJFrameClient extends javax.swing.JFrame {
             }
         }
 
-        private void _sendChatActionPerformed(String m) { //ùìéçú öàè ìëì äçáøéí  //îåôòì áìçéöä òì äñğã
+        private void _sendChatActionPerformed(String m) { //Ã¹Ã¬Ã©Ã§Ãº Ã¶Ã Ã¨ Ã¬Ã«Ã¬ Ã¤Ã§Ã¡Ã¸Ã©Ã­  //Ã®Ã¥Ã´Ã²Ã¬ Ã¡Ã¬Ã§Ã©Ã¶Ã¤ Ã²Ã¬ Ã¤Ã±Ã°Ã£
             if (ChatClient != null) {
-                System.out.println(m);//úåëï
-                ChatClient.SendMassage(m);//ùìéçú ääåãòä
-                UserText.setText("");//ğé÷åé äúéáä
+                System.out.println(m);//ÃºÃ¥Ã«Ã¯
+                ChatClient.SendMassage(m);//Ã¹Ã¬Ã©Ã§Ãº Ã¤Ã¤Ã¥Ã£Ã²Ã¤
+                UserText.setText("");//Ã°Ã©Ã·Ã¥Ã© Ã¤ÃºÃ©Ã¡Ã¤
             }
         }
 
-        //ùìéçä ìñøáø
+        //Ã¹Ã¬Ã©Ã§Ã¤ Ã¬Ã±Ã¸Ã¡Ã¸
         public void SendMassage(String messg) {
-            prepareBuffer(UserName + " says: " + messg);//ùìéçú ääåãòä ìôáø
-            channelWrite(SChan);//ùìéçú ääåãòä îäòøåõ ùì äáôø ìùøú
+            prepareBuffer(UserName + " says: " + messg);//Ã¹Ã¬Ã©Ã§Ãº Ã¤Ã¤Ã¥Ã£Ã²Ã¤ Ã¬Ã´Ã¡Ã¸
+            channelWrite(SChan);//Ã¹Ã¬Ã©Ã§Ãº Ã¤Ã¤Ã¥Ã£Ã²Ã¤ Ã®Ã¤Ã²Ã¸Ã¥Ãµ Ã¹Ã¬ Ã¤Ã¡Ã´Ã¸ Ã¬Ã¹Ã¸Ãº
         }
 
         public void prepareBuffer(String massg) {
@@ -360,7 +360,7 @@ public class NewJFrameClient extends javax.swing.JFrame {
 
             writeBuffer.put(massg.getBytes());
             writeBuffer.putChar('\n');
-            //ùåìç àú ääåãòä ìáôø
+            //Ã¹Ã¥Ã¬Ã§ Ã Ãº Ã¤Ã¤Ã¥Ã£Ã²Ã¤ Ã¬Ã¡Ã´Ã¸
 
             writeBuffer.flip();
             //used to flip this buffer. The limit is set to the current position and then the position is set to zero.
@@ -374,8 +374,8 @@ public class NewJFrameClient extends javax.swing.JFrame {
             while (num != len) {
                 try {
                     num += SChan.write(writeBuffer);
-                    //îñôø äáúéí ùğëúáå àåìé àôñ
-                    //ñåâéí îñåéîéí ùì òøåöéí  áäúàí ìîöáí  òùåééí ìëúåá ø÷ çì÷ îäáúéí àå àåìé àó àçã áëìì  òøåõ ù÷ò áîöá ìà çåñí  ìîùì  ìà éëåì ìëúåá éåúø áúéí îîä ùôğåééí áòøåõ ùì áôø äôìè 
+                    //Ã®Ã±Ã´Ã¸ Ã¤Ã¡ÃºÃ©Ã­ Ã¹Ã°Ã«ÃºÃ¡Ã¥ Ã Ã¥Ã¬Ã© Ã Ã´Ã±
+                    //Ã±Ã¥Ã¢Ã©Ã­ Ã®Ã±Ã¥Ã©Ã®Ã©Ã­ Ã¹Ã¬ Ã²Ã¸Ã¥Ã¶Ã©Ã­  Ã¡Ã¤ÃºÃ Ã­ Ã¬Ã®Ã¶Ã¡Ã­  Ã²Ã¹Ã¥Ã©Ã©Ã­ Ã¬Ã«ÃºÃ¥Ã¡ Ã¸Ã· Ã§Ã¬Ã· Ã®Ã¤Ã¡ÃºÃ©Ã­ Ã Ã¥ Ã Ã¥Ã¬Ã© Ã Ã³ Ã Ã§Ã£ Ã¡Ã«Ã¬Ã¬  Ã²Ã¸Ã¥Ãµ Ã¹Ã·Ã² Ã¡Ã®Ã¶Ã¡ Ã¬Ã  Ã§Ã¥Ã±Ã­  Ã¬Ã®Ã¹Ã¬  Ã¬Ã  Ã©Ã«Ã¥Ã¬ Ã¬Ã«ÃºÃ¥Ã¡ Ã©Ã¥ÃºÃ¸ Ã¡ÃºÃ©Ã­ Ã®Ã®Ã¤ Ã¹Ã´Ã°Ã¥Ã©Ã©Ã­ Ã¡Ã²Ã¸Ã¥Ãµ Ã¹Ã¬ Ã¡Ã´Ã¸ Ã¤Ã´Ã¬Ã¨ 
 
                     Thread.sleep(5);
                 } catch (IOException ex) {
@@ -386,20 +386,20 @@ public class NewJFrameClient extends javax.swing.JFrame {
 
             }
             writeBuffer.rewind();
-            //îùîùú ëãé ìäøéõ àçåøä àú äáôø äæä  äîé÷åí îåâãø ìàôñ åäñéîï ğîç÷  äôòì ùéèä æå ìôğé øöó ùì ôòåìåú ëúéáä àå ÷áìú òøåõ
+            //Ã®Ã¹Ã®Ã¹Ãº Ã«Ã£Ã© Ã¬Ã¤Ã¸Ã©Ãµ Ã Ã§Ã¥Ã¸Ã¤ Ã Ãº Ã¤Ã¡Ã´Ã¸ Ã¤Ã¦Ã¤  Ã¤Ã®Ã©Ã·Ã¥Ã­ Ã®Ã¥Ã¢Ã£Ã¸ Ã¬Ã Ã´Ã± Ã¥Ã¤Ã±Ã©Ã®Ã¯ Ã°Ã®Ã§Ã·  Ã¤Ã´Ã²Ã¬ Ã¹Ã©Ã¨Ã¤ Ã¦Ã¥ Ã¬Ã´Ã°Ã© Ã¸Ã¶Ã³ Ã¹Ã¬ Ã´Ã²Ã¥Ã¬Ã¥Ãº Ã«ÃºÃ©Ã¡Ã¤ Ã Ã¥ Ã·Ã¡Ã¬Ãº Ã²Ã¸Ã¥Ãµ
         }
 
         public void ReadMassage() {
 
             try {
 
-                ReadSelector.selectNow();//òåùä ñéğëøåï ìå÷ç ÷ìééğè àçã
+                ReadSelector.selectNow();//Ã²Ã¥Ã¹Ã¤ Ã±Ã©Ã°Ã«Ã¸Ã¥Ã¯ Ã¬Ã¥Ã·Ã§ Ã·Ã¬Ã©Ã©Ã°Ã¨ Ã Ã§Ã£
 
                 //The selected-key set is the set of keys 
                 //such that each key's channel was detected to be ready for at least one of the operations identified in 
                 //the key's interest set during a prior selection operation. This set is returned by the selectedKeys method. 
                 //The selected-key set is always a subset of the key set.
-                Set readyKeys = ReadSelector.selectedKeys();// úôåñ òì éãé ÷ìééğè
+                Set readyKeys = ReadSelector.selectedKeys();// ÃºÃ´Ã¥Ã± Ã²Ã¬ Ã©Ã£Ã© Ã·Ã¬Ã©Ã©Ã°Ã¨
                 //the selected registered keys
 
                 Iterator i = readyKeys.iterator();
@@ -412,36 +412,36 @@ public class NewJFrameClient extends javax.swing.JFrame {
                     //That's why we have to invoke iter.remove() when we got the key from selection table. If not, we will get the key again and again by selector.selectedKeys() even if it's not ready to use.
 
                     //Returns the channel for which this key was created.
-                    SocketChannel channel = (SocketChannel) key.channel();//çéáåø ìñøáø
-                    //schan îàåúå ñåâ ùì
+                    SocketChannel channel = (SocketChannel) key.channel();//Ã§Ã©Ã¡Ã¥Ã¸ Ã¬Ã±Ã¸Ã¡Ã¸
+                    //schan Ã®Ã Ã¥ÃºÃ¥ Ã±Ã¥Ã¢ Ã¹Ã¬
 
                     ReadBuffer.clear();
                     //used to clear this buffer. The position is set to zero, the limit is set to the capacity, and the mark is discarded. Invoke this method before using a sequence of channel-read or put operations to fill this buffer.
                     //This method does not actually erase the data in the buffer, but it is named as if it did
 
-                    //÷åøà øöó ùì áúéí îòøåõ öàğì æä ìúåê áôø äôìè äğúåï
-                    //òøåõ áîöá ìà çåñí ìîùì ìà éëåì ì÷øåà éåúø áúéí îîä ùæîéğéí îéã îòøåõ ä÷ìè ùì äáôø
-                    //îçæéø îñôø áúéí ùğé÷øàå 
+                    //Ã·Ã¥Ã¸Ã  Ã¸Ã¶Ã³ Ã¹Ã¬ Ã¡ÃºÃ©Ã­ Ã®Ã²Ã¸Ã¥Ãµ Ã¶Ã Ã°Ã¬ Ã¦Ã¤ Ã¬ÃºÃ¥Ãª Ã¡Ã´Ã¸ Ã¤Ã´Ã¬Ã¨ Ã¤Ã°ÃºÃ¥Ã¯
+                    //Ã²Ã¸Ã¥Ãµ Ã¡Ã®Ã¶Ã¡ Ã¬Ã  Ã§Ã¥Ã±Ã­ Ã¬Ã®Ã¹Ã¬ Ã¬Ã  Ã©Ã«Ã¥Ã¬ Ã¬Ã·Ã¸Ã¥Ã  Ã©Ã¥ÃºÃ¸ Ã¡ÃºÃ©Ã­ Ã®Ã®Ã¤ Ã¹Ã¦Ã®Ã©Ã°Ã©Ã­ Ã®Ã©Ã£ Ã®Ã²Ã¸Ã¥Ãµ Ã¤Ã·Ã¬Ã¨ Ã¹Ã¬ Ã¤Ã¡Ã´Ã¸
+                    //Ã®Ã§Ã¦Ã©Ã¸ Ã®Ã±Ã´Ã¸ Ã¡ÃºÃ©Ã­ Ã¹Ã°Ã©Ã·Ã¸Ã Ã¥ 
                     long nbytes = channel.read(ReadBuffer);
 
-                    if (nbytes == -1) {// -1 àí äòøåõ ğñâø îçæéø
+                    if (nbytes == -1) {// -1 Ã Ã­ Ã¤Ã²Ã¸Ã¥Ãµ Ã°Ã±Ã¢Ã¸ Ã®Ã§Ã¦Ã©Ã¸
                         ChatBox.append("You logged out !------\n");
-                        channel.close();//ñâéøú äòøåõ
+                        channel.close();//Ã±Ã¢Ã©Ã¸Ãº Ã¤Ã²Ã¸Ã¥Ãµ
                         
                         if (x) {
-                            System.exit(1);// àí äîùúîù ìçõ òì äàé÷ñ
+                            System.exit(1);// Ã Ã­ Ã¤Ã®Ã¹ÃºÃ®Ã¹ Ã¬Ã§Ãµ Ã²Ã¬ Ã¤Ã Ã©Ã·Ã±
                         }
                         x = true;
                         setDefaultCloseOperation(EXIT_ON_CLOSE);
                         UserText.setEnabled(false);
                         sendChat.setEnabled(false);
                         ChatBox.setEnabled(false);
-                        stop();  //òöéøú äñøã
+                        stop();  //Ã²Ã¶Ã©Ã¸Ãº Ã¤Ã±Ã¸Ã£
                         
                     } else {
 
-                        StringBuffer sb = (StringBuffer) key.attachment();//ùéøùåø ìôé
-                        //îçæéøä àú ääú÷ùøåú äğåëçéú ìîôúç æä
+                        StringBuffer sb = (StringBuffer) key.attachment();//Ã¹Ã©Ã¸Ã¹Ã¥Ã¸ Ã¬Ã´Ã©
+                        //Ã®Ã§Ã¦Ã©Ã¸Ã¤ Ã Ãº Ã¤Ã¤ÃºÃ·Ã¹Ã¸Ã¥Ãº Ã¤Ã°Ã¥Ã«Ã§Ã©Ãº Ã¬Ã®Ã´ÃºÃ§ Ã¦Ã¤
 
                         ReadBuffer.flip();
                         //used to flip this buffer. The limit is set to the current position and then the position is set to zero.
@@ -452,21 +452,21 @@ public class NewJFrameClient extends javax.swing.JFrame {
                         String line = sb.toString();
 
                         if ((line.indexOf("\n") != -1) || (line.indexOf("\r") != -1)) {
-                            line = line.trim();//îáèì øååçéí îääúçìä åäñåó
+                            line = line.trim();//Ã®Ã¡Ã¨Ã¬ Ã¸Ã¥Ã¥Ã§Ã©Ã­ Ã®Ã¤Ã¤ÃºÃ§Ã¬Ã¤ Ã¥Ã¤Ã±Ã¥Ã³
 
-                            if (line.startsWith("client id")) { //ëìåîø äùøú ùìç ìå ÷åã
+                            if (line.startsWith("client id")) { //Ã«Ã¬Ã¥Ã®Ã¸ Ã¤Ã¹Ã¸Ãº Ã¹Ã¬Ã§ Ã¬Ã¥ Ã·Ã¥Ã£
                                 System.out.println("##########" + line);
                                 String[] words = line.split(":");
-                                id = parseInt(words[1]);//ùîéøú ä÷åã ùäùøú ùìç ìå
+                                id = parseInt(words[1]);//Ã¹Ã®Ã©Ã¸Ãº Ã¤Ã·Ã¥Ã£ Ã¹Ã¤Ã¹Ã¸Ãº Ã¹Ã¬Ã§ Ã¬Ã¥
 
-                                ChatClient.SendMassage("user id:" + id + ":" + UserName);//ùìéçú ùí äì÷åç ìùøú
+                                ChatClient.SendMassage("user id:" + id + ":" + UserName);//Ã¹Ã¬Ã©Ã§Ãº Ã¹Ã­ Ã¤Ã¬Ã·Ã¥Ã§ Ã¬Ã¹Ã¸Ãº
                                 ChatBox.append(" server : welcome " + UserName + "!\n Note :To exit from server write 'quit' .\n");
 
-                            } else { //àçøú æå äåãòä øâéìä îçáø áöàè
+                            } else { //Ã Ã§Ã¸Ãº Ã¦Ã¥ Ã¤Ã¥Ã£Ã²Ã¤ Ã¸Ã¢Ã©Ã¬Ã¤ Ã®Ã§Ã¡Ã¸ Ã¡Ã¶Ã Ã¨
                                 ChatBox.append("> " + line);
                                 ChatBox.append("" + '\n');
                             }
-                            sb.delete(0, sb.length());//StringBuffer øé÷åï ä
+                            sb.delete(0, sb.length());//StringBuffer Ã¸Ã©Ã·Ã¥Ã¯ Ã¤
                         }
                     }
                 }
